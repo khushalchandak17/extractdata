@@ -104,7 +104,7 @@ kubectl top pods -A > "$systeminfo_dir/top_pods.txt"
 kubectl describe pods -n cattle-system -n ingress-nginx -n cattle-fleet-local-system -n cattle-fleet-system -n cert-manager -n kube-system > "$systeminfo_dir/describe_pods.txt"
 
 # List of namespaces to monitor
-namespaces=("cattle-system" "ingress-nginx" "cattle-fleet-local-system" "cattle-fleet-system" "cert-manager" "kube-system")
+namespaces=("cattle-system" "ingress-nginx" "cattle-fleet-local-system" "cattle-fleet-system" "cert-manager" "kube-system" "fleet-default")
 
 # Create subdirectories for each namespace in the "start" directory
 for namespace in "${namespaces[@]}"; do
@@ -140,7 +140,7 @@ kubectl get nodes > "$systeminfo_dir/nodes_end.txt"
 kubectl describe nodes > "$systeminfo_dir/nodes_describe_end.txt"
 kubectl top nodes > "$systeminfo_dir/top_nodes_end.txt"
 kubectl top pods -A > "$systeminfo_dir/top_pods_end.txt"
-kubectl describe pods -n cattle-system -n ingress-nginx -n cattle-fleet-local-system -n cattle-fleet-system -n cert-manager -n kube-system  > "$systeminfo_dir/describe_pods_end.txt"
+kubectl describe pods -n cattle-system -n ingress-nginx -n cattle-fleet-local-system -n cattle-fleet-system -n cert-manager -n kube-system -n fleet-default > "$systeminfo_dir/describe_pods_end.txt"
 
 read -p "Press Enter to exit..."
 
